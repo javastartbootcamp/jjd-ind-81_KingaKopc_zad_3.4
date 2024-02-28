@@ -1,12 +1,11 @@
+package pl.javastart.task;
 
-    public class Category {
-        String name;
+public class Category {
+    String name;
+    String description;
 
-        String description;
-
-
-       Category(String n, String d){
-            name = n;
-            description = d;
+    Category(String n, String d) {
+        name = n;
+        description = d;
     }
 }

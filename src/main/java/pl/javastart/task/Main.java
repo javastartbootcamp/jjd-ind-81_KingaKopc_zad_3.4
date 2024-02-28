@@ -1,34 +1,31 @@
 package pl.javastart.task;
 
-import jdk.jfr.Category;
-
-import java.sql.SQLOutput;
-
 public class Main {
 
     public static void main(String[] args) {
 
         Category category1 = new Category("Słodkości", "Ciasta");
-        System.out.println(category1);
-        Category category2 = new Category("Dietetyczne","Torty wegańskie");
-        System.out.println(category2);
+        System.out.println("Kategoria1: " + category1.name + " " +
+                "Opis kategorii1: " + category1.description + " ");
+        Category category2 = new Category("Dietetyczne", "Torty wegańskie");
+        System.out.println("Kategoria2: " + category2.name + " " +
+                "Opis kategorii2: " + category2.description + " ");
 
-        Product product1 = new Product("Ciasto", "83,9 zł", "Szarlotka", category1);
-        System.out.println(product1);
-        Product product2 = new Product("Ciasto", "95,0 zł", "Sernik", category1);
-        System.out.println(product2);
-        Product product3 = new Product("Tort", "135.90 zł", "Tort Leśny Mech", category2);
-        System.out.println(product3);
-        Product product4 = new Product("Upominek", "99.0 zł", "Słodka paczka", null);
-        System.out.println(product4);
+        Product product1 = new Product("Ciasto", 100.0, " Szarlotka ", category1);
+        System.out.println("Produkt1: " + product1.name + " " + product1.price + " " +
+                product1.description + " " + category1.name + " ");
+        Product product2 = new Product("Ciasto", 95.0, " Sernik ", category1);
+        Product product3 = new Product("Tort", 135.90, "Tort Leśny Mech", category2);
+        Product product4 = new Product("Upominek", 99.0, "Słodka paczka", null);
 
-        SpecialOffer offer1 = new SpecialOffer( product1, "Promocja świąateczna",
+        SpecialOffer offer1 = new SpecialOffer(product1, "Promocja świąteczna",
                 "Obowiązuje od 28 do 30 marca", 0.2);
-        System.out.println(offer1);
+        System.out.println("Oferta specjalna: " + product1.description + " " + offer1.description + " "
+                + offer1.duration + " " + offer1.discount + " ");
 
-        offer1.getDiscountPrice(product1);
-        System.out.println("Cena produktu1 po obniżce 20% wynosi: " + "discount");
+        double offer = offer1.getDiscountPrice(product1);
+        System.out.println("Cena produktu1 po obniżce 20% wynosi: " + offer);
 
     }
 }
-//nie mogę znalezc bledu
+//poprawione zgodnie z uwagami
